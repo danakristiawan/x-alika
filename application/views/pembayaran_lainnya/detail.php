@@ -14,7 +14,7 @@
                     <thead class="text-center">
                         <tr>
                             <th>No</th>
-                            <th>Uraian</th>
+                            <th>Uraian Kegiatan</th>
                             <th>Tanggal</th>
                             <th>Bruto</th>
                             <th>PPh</th>
