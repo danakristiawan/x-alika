@@ -4,7 +4,7 @@
     </div>
     <div class="row mb-2">
         <div class="col-lg-10">
-            <a href="<?= base_url('pembayaran-lainnya/index/') . $thn . '/' . $jns; ?>" class="btn btn-sm btn-outline-success ml-1 mt-2 mb-2">Kembali ke halaman sebelumnya</a>
+            <a href="<?= base_url('pembayaran-lainnya/index/') . $thn . '/' . $jns; ?>" class="btn btn-sm btn-outline-success ml-1 mt-1 mb-2">Kembali ke halaman sebelumnya</a>
         </div>
     </div>
     <div class="row">

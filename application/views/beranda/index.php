@@ -65,7 +65,7 @@
                                     <th>Nama</th>
                                     <th>Tgl Lahir</th>
                                     <th>Status</th>
-                                    <th>Tunjangan Keluarga</th>
+                                    <th>Tunjangan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -95,7 +95,7 @@
                                     </tr>
                                 <?php endforeach; ?>
                                 <tr>
-                                    <td colspan="5"><a href="#" class="btn btn-sm btn-outline-success pt-0 pb-0">Cetak KP4</a></td>
+                                    <td colspan="5"><a href="#" class="btn btn-sm btn-outline-success pt-0 pb-0">Download KP4</a></td>
                                 </tr>
                             </tbody>
                         </table>
