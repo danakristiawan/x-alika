@@ -12,8 +12,7 @@ class Penghasilan_tahun_ini extends CI_Controller
     public function index()
     {
         $nip = $this->session->userdata('nip');
-        // $tahun = date('Y');
-        $tahun = '2019';
+        $tahun = date('Y');
         $data['penghasilan'] = $this->penghasilan->getPenghasilanTahunIni($nip, $tahun);
 
         $this->load->view('template/header');
