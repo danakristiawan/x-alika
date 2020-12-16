@@ -44,10 +44,12 @@
                             <td>Alamat</td>
                             <td><?= $pegawai['alamat']; ?></td>
                         </tr>
+                        <tr>
+                            <td colspan="2"><a href="<?= base_url('sign-out'); ?>" class="btn btn-sm btn-outline-success mt-1 mb-1">Sign Out / Keluar Aplikasi</a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <a href="<?= base_url('sign-out'); ?>" class="btn btn-sm btn-outline-success mb-4">Sign Out / Keluar Aplikasi</a>
         </div>
         <div class="col-lg-6">
             <div class="row">
@@ -92,6 +94,9 @@
                                         <td><?= $r['kddapat'] == '1' ? 'Dapat' : 'Tidak'; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
+                                <tr>
+                                    <td colspan="5"><a href="#" class="btn btn-sm btn-outline-success pt-0 pb-0">Cetak KP4</a></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
