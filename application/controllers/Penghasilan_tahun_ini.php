@@ -26,8 +26,7 @@ class Penghasilan_tahun_ini extends CI_Controller
     public function index()
     {
         $nip = $this->session->userdata('nip');
-        $thn = '2019';
-        // $thn = date('Y');
+        $thn = date('Y');
         $data['penghasilan'] = $this->penghasilan->getPenghasilanTahunIni($nip, $thn);
 
         $this->load->view('template/header');
@@ -42,7 +41,6 @@ class Penghasilan_tahun_ini extends CI_Controller
         if (!isset($thn)) $thn = date('Y');
 
         $nip = $this->session->userdata('nip');
-        $thn = '2019';
         $kdsatker = $this->unit->getPegawai($nip)['kdsatker'];
 
         $data['satker'] = $this->satker->getSatker($kdsatker);
@@ -64,10 +62,32 @@ class Penghasilan_tahun_ini extends CI_Controller
         $html2pdf->addFont('Arial');
         $html2pdf->pdf->SetTitle('SKP');
         $html2pdf->writeHTML($html);
-        $html2pdf->output('skp-' . $bln . $thn . '.pdf');
+        $html2pdf->output('skp-' . $bln . $thn . '.pdf', 'D');
     }
 
-    public function daftar()
+    public function daftar($bln = null, $thn = null)
     {
+        if (!isset($bln)) $bln = date('m');
+        if (!isset($thn)) $thn = date('Y');
+
+        $nip = $this->session->userdata('nip');
+        $kdsatker = $this->unit->getPegawai($nip)['kdsatker'];
+
+        $data['satker'] = $this->satker->getSatker($kdsatker);
+        $data['gaji'] = $this->gaji->getBulanGaji($nip, $bln, $thn);
+        $data['view_gaji'] = $this->gaji->getViewBulanGaji($nip, $bln, $thn);
+        $data['profil'] = $this->profil->getProfil($kdsatker, $thn);
+        $data['bulan'] = $this->bulan->getBulan($bln);
+        $data['pegawai'] = $this->pegawai->getPegawai($nip);
+
+        ob_start();
+        $this->load->view('penghasilan_tahun_ini/daftar', $data);
+        $html = ob_get_clean();
+
+        $html2pdf = new Html2Pdf('L', 'A4', 'en', false, 'UTF-8', array(10, 10, 10, 10));
+        $html2pdf->addFont('Arial');
+        $html2pdf->pdf->SetTitle('Daftar Gaji');
+        $html2pdf->writeHTML($html);
+        $html2pdf->output('daftar-gaji-' . $bln . $thn . '.pdf', 'D');
     }
 }

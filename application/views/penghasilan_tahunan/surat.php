@@ -181,7 +181,7 @@
         <span style="font-size: 12px;">Nomor: </span><span style="font-size: 12px; margin-left: 30px;"><?= $profil['no_skp']; ?></span>
     </div>
 
-    <p style="margin-left:10px; margin-top:25px; text-align: justify;">Yang bertandatangan dibawah ini, <?= $profil['jab_ttd_skp']; ?> - <?= $satker['nmsatker']; ?>, menerangkan bahwa:</p>
+    <p style="margin-left:10px; margin-top:25px;  text-align: justify;">Yang bertandatangan dibawah ini, <?= $profil['jab_ttd_skp']; ?> - <?= $satker['nmsatker']; ?>, menerangkan bahwa:</p>
 
     <table style="width: 95%; margin-bottom: 10px; margin-left:20px;">
         <tr>

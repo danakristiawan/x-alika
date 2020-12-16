@@ -26,7 +26,7 @@ class Penghasilan_model extends CI_Model
     public function getPenghasilanTahunan($nip, $tahun)
     {
         return $this->db->query("
-        SELECT a.bruto AS bruto1,a.potongan AS potongan1,a.netto AS netto1,
+        SELECT a.bulan,a.tahun,a.bruto AS bruto1,a.potongan AS potongan1,a.netto AS netto1,
                             b.bruto AS bruto2,b.potongan AS potongan2,b.netto AS netto2,
                             c.bruto AS bruto3,c.pph AS potongan3,c.netto AS netto3,
                             d.bruto AS bruto4,d.pph AS potongan4,d.netto AS netto4,

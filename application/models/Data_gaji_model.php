@@ -51,4 +51,9 @@ class Data_gaji_model extends CI_Model
     {
         return $this->db->get_where('data_gaji', ['nip' => $nip, 'bulan' => $bln, 'tahun' => $thn,])->row_array();
     }
+
+    public function getViewBulanGaji($nip, $bln, $thn)
+    {
+        return $this->db->get_where('view_gaji', ['nip' => $nip, 'bulan' => $bln, 'tahun' => $thn,])->row_array();
+    }
 }

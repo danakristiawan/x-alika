@@ -95,8 +95,8 @@
                                 <td class="text-right"><?= number_format($total_netto, 0, ',', '.'); ?></td>
                                 <td class="pb-0 pt-0">
                                     <div class="btn-group btn-group-sm" role="group">
-                                        <a href="#" class="btn btn-sm btn-outline-success pt-0 pb-0">Surat</a>
-                                        <a href="#" class="btn btn-sm btn-outline-success pt-0 pb-0">Daftar</a>
+                                        <a href="<?= base_url('penghasilan-tahunan/surat/') . $r['bulan'] . '/' . $r['tahun']; ?>" class="btn btn-sm btn-outline-success pt-0 pb-0">Surat</a>
+                                        <a href="<?= base_url('penghasilan-tahunan/daftar/') . $r['bulan'] . '/' . $r['tahun']; ?>" class="btn btn-sm btn-outline-success pt-0 pb-0">Daftar</a>
                                     </div>
                                 </td>
                             </tr>

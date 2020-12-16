@@ -95,7 +95,7 @@
                                     </tr>
                                 <?php endforeach; ?>
                                 <tr>
-                                    <td colspan="5"><a href="#" class="btn btn-sm btn-outline-success pt-0 pb-0">Download KP4</a></td>
+                                    <td colspan="5"><a href="<?= base_url('beranda/kp4'); ?>" class="btn btn-sm btn-outline-success pt-0 pb-0">Download KP4</a></td>
                                 </tr>
                             </tbody>
                         </table>
