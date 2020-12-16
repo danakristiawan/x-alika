@@ -14,7 +14,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead class="text-center">
-                        <tr>
+                        <tr class="align-middle">
                             <th>No</th>
                             <th>No Dok</th>
                             <th>Uraian</th>
@@ -27,7 +27,7 @@
                         <?php
                         $no = 1;
                         foreach ($perubahan as $r) : ?>
-                            <tr>
+                            <tr class="align-middle">
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td><?= $r['no']; ?></td>
                                 <td><?= $r['uraian']; ?></td>
