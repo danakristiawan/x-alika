@@ -64,7 +64,7 @@ class Penghasilan_tahun_ini extends CI_Controller
         $html2pdf->addFont('Arial');
         $html2pdf->pdf->SetTitle('SKP');
         $html2pdf->writeHTML($html);
-        $html2pdf->output('skp-' . $bln . $thn . '.pdf', 'D');
+        $html2pdf->output('skp-' . $bln . $thn . '.pdf');
     }
 
     public function daftar()
