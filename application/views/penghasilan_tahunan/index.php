@@ -2,10 +2,10 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Penghasilan Tahunan</h1>
     </div>
-    <div class="row mb-2">
+    <div class="row mb-3">
         <div class="col">
             <?php foreach ($tahun as $t) : ?>
-                <a href="<?= base_url('penghasilan-tahunan/index/') . $t['tahun']; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-2 mb-2"><?= $t['tahun']; ?></a>
+                <a href="<?= base_url('penghasilan-tahunan/index/') . $t['tahun']; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['tahun']; ?></a>
             <?php endforeach; ?>
         </div>
     </div>
@@ -14,18 +14,18 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead class="text-center">
-                        <tr>
-                            <th rowspan="2" class="pb-4">No</th>
-                            <th rowspan="2" class="pb-4">Bulan</th>
+                        <tr class="align-middle">
+                            <th rowspan="2">No</th>
+                            <th rowspan="2">Bulan</th>
                             <th colspan="3">Gaji</th>
                             <th colspan="3">Kekurangan Gaji</th>
                             <th colspan="3">Uang Makan</th>
                             <th colspan="3">Uang Lembur</th>
                             <th colspan="3">Tunjangan Kinerja</th>
                             <th colspan="3">Total</th>
-                            <th rowspan="2" class="pb-4">Cetak</th>
+                            <th rowspan="2">Cetak</th>
                         </tr>
-                        <tr>
+                        <tr class="align-middle">
                             <th>Bruto</th>
                             <th>Pot</th>
                             <th>Netto</th>
@@ -72,7 +72,7 @@
                             $total_potongan = $r['potongan1'] + $r['potongan2'] + $r['potongan3'] + $r['potongan4'] + $r['potongan5'];
                             $total_netto = $r['netto1'] + $r['netto2'] + $r['netto3'] + $r['netto4'] + $r['netto5'];
                         ?>
-                            <tr>
+                            <tr class="align-middle">
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td><?= $r['nama_bulan']; ?></td>
                                 <td class="text-right"><?= number_format($r['bruto1'], 0, ',', '.'); ?></td>
@@ -93,7 +93,12 @@
                                 <td class="text-right"><?= number_format($total_bruto, 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($total_potongan, 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($total_netto, 0, ',', '.'); ?></td>
-                                <td></td>
+                                <td class="pb-0 pt-0">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <a href="#" class="btn btn-sm btn-outline-success pt-0 pb-0">Surat</a>
+                                        <a href="#" class="btn btn-sm btn-outline-success pt-0 pb-0">Daftar</a>
+                                    </div>
+                                </td>
                             </tr>
                             <?php
                             $j1 += $r['bruto1'];

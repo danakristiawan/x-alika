@@ -2,17 +2,17 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Pembayaran Lainnya</h1>
     </div>
-    <div class="row">
+    <div class="row mb-2">
         <div class="col-lg-8">
             <?php foreach ($tahun as $t) : ?>
-                <a href="<?= base_url('pembayaran-lainnya/index/') . $t['tahun'] . '/' . $jns; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-2 mb-2"><?= $t['tahun']; ?></a>
+                <a href="<?= base_url('pembayaran-lainnya/index/') . $t['tahun'] . '/' . $jns; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['tahun']; ?></a>
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="row mb-2">
+    <div class="row mb-3">
         <div class="col-lg-8">
             <?php foreach ($jenis as $j) : ?>
-                <a href="<?= base_url('pembayaran-lainnya/index/') . $thn . '/' . $j['jenis']; ?>" class="btn btn-sm btn-outline-success <?= $j['jenis'] == $jns ? 'active' : '' ?> ml-1 mt-2 mb-2"><?= $j['jenis']; ?></a>
+                <a href="<?= base_url('pembayaran-lainnya/index/') . $thn . '/' . $j['jenis']; ?>" class="btn btn-sm btn-outline-success <?= $j['jenis'] == $jns ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $j['jenis']; ?></a>
             <?php endforeach; ?>
         </div>
     </div>

@@ -2,10 +2,10 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tunjangan Kinerja</h1>
     </div>
-    <div class="row mb-2">
+    <div class="row mb-3">
         <div class="col">
             <?php foreach ($tahun as $t) : ?>
-                <a href="<?= base_url('tunjangan-kinerja/index/') . $t['tahun']; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-2 mb-2"><?= $t['tahun']; ?></a>
+                <a href="<?= base_url('tunjangan-kinerja/index/') . $t['tahun']; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['tahun']; ?></a>
             <?php endforeach; ?>
         </div>
     </div>
@@ -14,15 +14,15 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead class="text-center">
-                        <tr>
-                            <th rowspan="2" class="pb-4">No</th>
-                            <th rowspan="2" class="pb-4">Bulan</th>
+                        <tr class="align-middle">
+                            <th rowspan="2">No</th>
+                            <th rowspan="2">Bulan</th>
                             <th colspan="7">Bruto</th>
                             <th>Potongan</th>
-                            <th rowspan="2" class="pb-4">Netto</th>
-                            <th rowspan="2" class="pb-4">Keterangan Potongan</th>
+                            <th rowspan="2">Netto</th>
+                            <th rowspan="2">Keterangan Potongan</th>
                         </tr>
-                        <tr>
+                        <tr class="align-middle">
                             <th>Grade</th>
                             <th>Pokok</th>
                             <th>Tambahan</th>
@@ -46,7 +46,7 @@
                         $j8 = 0;
                         $j9 = 0;
                         foreach ($tukin as $r) : ?>
-                            <tr>
+                            <tr class="align-middle">
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td><?= $r['nama_bulan']; ?></td>
                                 <?php
@@ -123,7 +123,7 @@
                             $j9 += $netto;
                             ?>
                         <?php endforeach; ?>
-                        <tr>
+                        <tr class="align-middle">
                             <th colspan="3" class="text-center">Jumlah</th>
                             <th class="text-right"><?= number_format($j2, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j3, 0, ',', '.'); ?></th>

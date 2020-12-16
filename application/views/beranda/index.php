@@ -58,12 +58,12 @@
                                 <tr>
                                     <th colspan="5">Data Keluarga</th>
                                 </tr>
-                                <tr>
+                                <tr class="align-middle">
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Tgl Lhr</th>
+                                    <th>Tgl Lahir</th>
                                     <th>Status</th>
-                                    <th>Tunj</th>
+                                    <th>Tunjangan Keluarga</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -84,7 +84,7 @@
                                             break;
                                     }
                                 ?>
-                                    <tr>
+                                    <tr class="align-middle">
                                         <td><?= $no++; ?></td>
                                         <td><?= $r['nama']; ?></td>
                                         <td><?= date('d-m-Y', strtotime($r['tgllhr'])); ?></td>
