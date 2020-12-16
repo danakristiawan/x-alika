@@ -50,4 +50,9 @@ class Data_lain_model extends CI_Model
     {
         return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_lain a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$thn'  AND a.jenis='$jns'")->result_array();
     }
+
+    public function getPph($nip, $thn)
+    {
+        return $this->db->query("SELECT jenis, SUM(bruto) AS jumlah_bruto, SUM(pph) AS jumlah_pph FROM data_lain WHERE nip='$nip' AND tahun='$thn' AND pph > 0 AND jenis <> 'rapel-tukin' GROUP BY jenis")->result_array();
+    }
 }

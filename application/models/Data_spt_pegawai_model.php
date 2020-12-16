@@ -44,4 +44,24 @@ class Data_spt_pegawai_model extends CI_Model
     {
         return $this->db->query(" SELECT * FROM data_spt_pegawai WHERE nip='$nip' AND tahun='$thn'")->row_array();
     }
+
+    public function getViewGaji($nip, $thn)
+    {
+        return $this->db->get_where('view_pajak_gaji', ['tahun' => $thn, 'nip' => $nip])->row_array();
+    }
+
+    public function getViewKurang($nip, $thn)
+    {
+        return $this->db->get_where('view_pajak_kurang', ['tahun' => $thn, 'nip' => $nip])->row_array();
+    }
+
+    public function getViewTukin($nip, $thn)
+    {
+        return $this->db->query("SELECT tahun,nip,SUM(netto) AS netto,SUM(potongan) AS potongan FROM view_tukin WHERE tahun='$thn' AND nip='$nip'")->row_array();
+    }
+
+    public function getViewRapel($nip, $thn)
+    {
+        return $this->db->query("SELECT tahun,nip,SUM(netto) AS netto FROM data_lain WHERE tahun='$thn' AND nip='$nip' AND jenis='rapel-tukin'")->row_array();
+    }
 }

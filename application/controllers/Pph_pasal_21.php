@@ -7,6 +7,7 @@ class Pph_pasal_21 extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Data_spt_pegawai_model', 'spt');
+        $this->load->model('Ref_spt_tahunan_model', 'refSpt');
     }
 
     public function index($thn = null)
@@ -16,7 +17,12 @@ class Pph_pasal_21 extends CI_Controller
         $data['tahun'] = $this->spt->getTahun($nip);
         $data['thn'] = $thn;
         $data['nip'] = $nip;
-        $data['spt'] = $this->spt->getSptPegawai($nip, $thn);
+        $data['peg'] = $this->spt->getSptPegawai($nip, $thn);
+        $data['gaji'] = $this->spt->getViewGaji($nip, $thn);
+        $data['kurang'] = $this->spt->getViewKurang($nip, $thn);
+        $data['tukin'] = $this->spt->getViewTukin($nip, $thn);
+        $data['rapel'] = $this->spt->getViewRapel($nip, $thn);
+        $data['tarif'] = $this->refSpt->getTarif($thn);
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');

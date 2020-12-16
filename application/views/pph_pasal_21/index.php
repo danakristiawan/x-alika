@@ -20,13 +20,6 @@
                 <?php
                 $tahun = $thn;
                 $tahun_lalu = $tahun - 1;
-                //query
-                $gaji = $this->db->get_where('view_pajak_gaji', ['tahun' => $tahun, 'nip' => $nip])->row_array();
-                $kurang = $this->db->get_where('view_pajak_kurang', ['tahun' => $tahun, 'nip' => $nip])->row_array();
-                $tukin = $this->db->query("SELECT tahun,nip,SUM(netto) AS netto,SUM(potongan) AS potongan FROM view_tukin WHERE tahun='$tahun' AND nip='$nip'")->row_array();
-                $rapel = $this->db->query("SELECT tahun,nip,SUM(netto) AS netto FROM data_lain WHERE tahun='$tahun' AND nip='$nip' AND jenis='rapel-tukin'")->row_array();
-                $tarif = $this->db->get_where('ref_spt_tahunan', ['tahun' => $tahun])->row_array();
-                $peg = $this->db->get_where('data_spt_pegawai', ['tahun' => $tahun, 'nip' => $nip])->row_array();
 
                 //tampilkan
                 $setahun = $gaji['jumlah'] >= 12 ? 12 : $gaji['jumlah'];

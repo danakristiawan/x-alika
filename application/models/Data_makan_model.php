@@ -46,4 +46,9 @@ class Data_makan_model extends CI_Model
     {
         return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_makan a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$tahun'")->result_array();
     }
+
+    public function getPph($nip, $tahun)
+    {
+        return $this->db->query("SELECT nip,tahun, SUM(bruto) AS jumlah_bruto, SUM(pph) AS jumlah_pph FROM data_makan WHERE nip='$nip' AND tahun='$tahun'")->row_array();
+    }
 }
