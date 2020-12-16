@@ -64,4 +64,9 @@ class Data_spt_pegawai_model extends CI_Model
     {
         return $this->db->query("SELECT tahun,nip,SUM(netto) AS netto FROM data_lain WHERE tahun='$thn' AND nip='$nip' AND jenis='rapel-tukin'")->row_array();
     }
+
+    public function getRapel($nip, $bln, $thn)
+    {
+        return $this->db->query("SELECT bulan,tahun,nip, SUM(bruto) AS bruto, SUM(pph) AS pph, SUM(netto) AS netto FROM data_lain WHERE bulan='$bln' AND tahun='$thn' AND nip='$nip' AND jenis='rapel-tukin'")->row_array();
+    }
 }

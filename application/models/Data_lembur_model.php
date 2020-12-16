@@ -51,4 +51,9 @@ class Data_lembur_model extends CI_Model
     {
         return $this->db->query("SELECT nip,tahun, SUM(bruto) AS jumlah_bruto, SUM(pph) AS jumlah_pph FROM data_lembur WHERE nip='$nip' AND tahun='$tahun'")->row_array();
     }
+
+    public function getBulanLembur($nip, $bln, $thn)
+    {
+        return $this->db->get_where('data_lembur', ['nip' => $nip, 'bulan' => $bln, 'tahun' => $thn,])->row_array();
+    }
 }

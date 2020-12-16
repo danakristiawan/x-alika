@@ -2,10 +2,10 @@
 
 class Penghasilan_model extends CI_Model
 {
-    public function getPenghasilanTahunIni($nip, $tahun)
+    public function getPenghasilanTahunIni($nip, $thn)
     {
         return $this->db->query("
-        SELECT a.netto AS netto1,
+        SELECT a.bulan,a.tahun,a.netto AS netto1,
                             b.netto AS netto2,
                             c.netto AS netto3,
                             d.netto AS netto4,
@@ -15,7 +15,7 @@ class Penghasilan_model extends CI_Model
                                         LEFT JOIN data_makan c ON a.nip=c.nip AND a.bulan=c.bulan AND a.tahun=c.tahun 
                                         LEFT JOIN data_lembur d ON a.nip=d.nip AND a.bulan=d.bulan AND a.tahun=d.tahun 
                                         LEFT JOIN view_tukin e ON a.nip=e.nip AND a.bulan=e.bulan AND a.tahun=e.tahun 
-                                        LEFT JOIN ref_bulan f ON a.bulan=f.kode WHERE a.nip='$nip' AND a.tahun='$tahun'")->result_array();
+                                        LEFT JOIN ref_bulan f ON a.bulan=f.kode WHERE a.nip='$nip' AND a.tahun='$thn'")->result_array();
     }
 
     public function getTahun($nip)

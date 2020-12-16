@@ -42,8 +42,13 @@ class Data_gaji_model extends CI_Model
         return $this->db->query("SELECT DISTINCT tahun FROM data_gaji WHERE nip='$nip' ORDER BY tahun DESC")->result_array();
     }
 
-    public function getGaji($nip, $tahun)
+    public function getGaji($nip, $thn)
     {
-        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_gaji a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$tahun'")->result_array();
+        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_gaji a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$thn'")->result_array();
+    }
+
+    public function getBulanGaji($nip, $bln, $thn)
+    {
+        return $this->db->get_where('data_gaji', ['nip' => $nip, 'bulan' => $bln, 'tahun' => $thn,])->row_array();
     }
 }

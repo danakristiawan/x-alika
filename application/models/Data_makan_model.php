@@ -51,4 +51,9 @@ class Data_makan_model extends CI_Model
     {
         return $this->db->query("SELECT nip,tahun, SUM(bruto) AS jumlah_bruto, SUM(pph) AS jumlah_pph FROM data_makan WHERE nip='$nip' AND tahun='$tahun'")->row_array();
     }
+
+    public function getBulanMakan($nip, $bln, $thn)
+    {
+        return $this->db->get_where('data_makan', ['nip' => $nip, 'bulan' => $bln, 'tahun' => $thn,])->row_array();
+    }
 }

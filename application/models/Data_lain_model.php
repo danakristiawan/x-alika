@@ -48,7 +48,7 @@ class Data_lain_model extends CI_Model
 
     public function getLain($nip, $thn, $jns)
     {
-        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_lain a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$thn'  AND a.jenis='$jns'")->result_array();
+        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_lain a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$thn' AND a.jenis='$jns'")->result_array();
     }
 
     public function getPph($nip, $thn)

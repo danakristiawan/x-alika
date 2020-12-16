@@ -46,4 +46,9 @@ class Data_tukin_model extends CI_Model
     {
         return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_tukin a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$tahun'")->result_array();
     }
+
+    public function getBulanTukin($nip, $bln, $thn)
+    {
+        return $this->db->get_where('data_tukin', ['nip' => $nip, 'bulan' => $bln, 'tahun' => $thn,])->row_array();
+    }
 }

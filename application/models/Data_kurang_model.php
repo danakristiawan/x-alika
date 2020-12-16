@@ -42,8 +42,13 @@ class Data_kurang_model extends CI_Model
         return $this->db->query("SELECT DISTINCT tahun FROM view_data_kurang WHERE nip='$nip' ORDER BY tahun DESC")->result_array();
     }
 
-    public function getKurang($nip, $tahun)
+    public function getKurang($nip, $thn)
     {
-        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM view_data_kurang a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$tahun'")->result_array();
+        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM view_data_kurang a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$thn'")->result_array();
+    }
+
+    public function getBulanKurang($nip, $bln, $thn)
+    {
+        return $this->db->get_where('view_data_kurang', ['nip' => $nip, 'bulan' => $bln, 'tahun' => $thn,])->row_array();
     }
 }
