@@ -12,7 +12,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead class="text-center">
-                        <tr>
+                        <tr class="align-middle">
                             <th>No</th>
                             <th>Uraian Kegiatan</th>
                             <th>Tanggal</th>
@@ -42,7 +42,7 @@
                             $j3 += $r['netto'];
                             ?>
                         <?php endforeach; ?>
-                        <tr>
+                        <tr class="align-middle">
                             <th colspan="3" class="text-center">Jumlah</th>
                             <th class="text-right"><?= number_format($j1, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j2, 0, ',', '.'); ?></th>
