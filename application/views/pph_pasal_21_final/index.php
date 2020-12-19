@@ -36,7 +36,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <a href="<?= base_url('pph-pasal-21-final/cetak/') . $thn; ?>" class="btn btn-sm btn-outline-success" download>Download Form 1721-VII</a>
+                                <a href="<?= base_url('pph-pasal-21-final/download-sentralisasi/') . $thn; ?>" class="btn btn-sm btn-outline-success" download>Download Form 1721-VII</a>
                             </td>
                             <th class="text-right"><?= number_format(($makan['jumlah_bruto'] + $lembur['jumlah_bruto']), 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format(($makan['jumlah_pph'] + $lembur['jumlah_pph']), 0, ',', '.'); ?></th>
@@ -75,7 +75,7 @@
                         endforeach; ?>
                         <tr>
                             <td colspan="2">
-                                <a href="<?= base_url('pph-pasal-21-final/cetak/') . $thn; ?>" class="btn btn-sm btn-outline-success" download>Download Form 1721-VII</a>
+                                <a href="<?= base_url('pph-pasal-21-final/download/') . $thn; ?>" class="btn btn-sm btn-outline-success" download>Download Form 1721-VII</a>
                             </td>
                             <th class="text-right"><?= number_format($j1, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j2, 0, ',', '.'); ?></th>

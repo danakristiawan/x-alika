@@ -11,7 +11,7 @@
     </div>
     <div class="row mb-2">
         <div class="col-lg-8">
-            <a href="<?= base_url('pph-pasal-21/cetak/') . $thn; ?>" class="btn btn-sm btn-outline-success" download>Download Form 1721-A2</a>
+            <a href="<?= base_url('pph-pasal-21/download/') . $thn; ?>" class="btn btn-sm btn-outline-success" download>Download Form 1721-A2</a>
         </div>
     </div>
     <div class="row">
