@@ -426,7 +426,7 @@
             <td class="kosong" style="width:33%; padding-bottom:10px; padding-top:5px;"><?= substr($np, 0, 2) . '.' . substr($np, 2, 3) . '.' . substr($np, 5, 3) . '.' . substr($np, 8, 1) . '-' . substr($np, 9, 3) . '.' . substr($np, 12, 3); ?></td>
             <td class="kosong" style="width:22%; padding-bottom:10px; padding-top:5px;">4. TANGGAL & TTD</td>
             <?php if ($profil['file']) : ?>
-                <td rowspan="3" class="angka" style="width:25%;"><img src="<?= base_url('../gajitukin/assets/files/') . $profil['file']; ?>" width="160" style="display:block; height: auto; margin-left: auto; margin-right: auto;"></td>
+                <td rowspan="3" class="angka" style="width:25%;"><img src="<?= base_url() . 'assets/files/' . $profil['file']; ?>" width="160" style="display:block; height: auto; margin-left: auto; margin-right: auto;"></td>
             <?php else : ?>
                 <td rowspan="3" class="angka" style="width:25%;"></td>
             <?php endif; ?>
