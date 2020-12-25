@@ -142,18 +142,18 @@ class Api extends RestController
     {
         $id = $this->put('id');
         $data = [
-            'nip' => $this->post('nip'),
-            'bulan' => $this->post('bulan'),
-            'tahun' => $this->post('tahun'),
-            'kdsatker' => $this->post('kdsatker'),
-            'kdanak' => $this->post('kdanak'),
-            'kdsubanak' => $this->post('kdsubanak'),
-            'kdgol' => $this->post('kdgol'),
-            'jmlhari' => $this->post('jmlhari'),
-            'tarif' => $this->post('tarif'),
-            'pph' => $this->post('pph'),
-            'bruto' => $this->post('bruto'),
-            'netto' => $this->post('netto')
+            'nip' => $this->put('nip'),
+            'bulan' => $this->put('bulan'),
+            'tahun' => $this->put('tahun'),
+            'kdsatker' => $this->put('kdsatker'),
+            'kdanak' => $this->put('kdanak'),
+            'kdsubanak' => $this->put('kdsubanak'),
+            'kdgol' => $this->put('kdgol'),
+            'jmlhari' => $this->put('jmlhari'),
+            'tarif' => $this->put('tarif'),
+            'pph' => $this->put('pph'),
+            'bruto' => $this->put('bruto'),
+            'netto' => $this->put('netto')
         ];
         if ($id === null | $id === "") {
             $this->response([

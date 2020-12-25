@@ -24,5 +24,6 @@
                 <?php endforeach; ?>
             </ul>
         <?php endforeach; ?>
+        <a href="<?= base_url('sign-out'); ?>" class="btn btn-sm btn-outline-success mt-3 ml-3">Sign Out / Keluar</a>
     </div>
 </nav>

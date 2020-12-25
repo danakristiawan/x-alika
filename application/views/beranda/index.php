@@ -44,9 +44,9 @@
                             <td>Alamat</td>
                             <td><?= $pegawai['alamat']; ?></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td colspan="2"><a href="<?= base_url('sign-out'); ?>" class="btn btn-sm btn-outline-success mt-1 mb-1">Sign Out / Keluar Aplikasi</a></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
