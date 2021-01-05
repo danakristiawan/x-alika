@@ -2,6 +2,11 @@
 
 class Data_makan_model extends CI_Model
 {
+    public function countDataMakan()
+    {
+        return $this->db->get('data_makan')->num_rows();
+    }
+
     public function getDataMakan($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

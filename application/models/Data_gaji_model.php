@@ -2,6 +2,11 @@
 
 class Data_gaji_model extends CI_Model
 {
+    public function countDataGaji()
+    {
+        return $this->db->get('data_gaji')->num_rows();
+    }
+
     public function getDataGaji($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

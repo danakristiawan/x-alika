@@ -2,6 +2,11 @@
 
 class Data_pegawai_model extends CI_Model
 {
+    public function countDataPegawai()
+    {
+        return $this->db->get('data_pegawai')->num_rows();
+    }
+
     public function getDataPegawai($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

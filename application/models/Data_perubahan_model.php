@@ -2,6 +2,11 @@
 
 class Data_perubahan_model extends CI_Model
 {
+    public function countDataPerubahan()
+    {
+        return $this->db->get('data_perubahan')->num_rows();
+    }
+
     public function getDataPerubahan($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

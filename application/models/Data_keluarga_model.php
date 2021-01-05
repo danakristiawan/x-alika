@@ -2,6 +2,11 @@
 
 class Data_keluarga_model extends CI_Model
 {
+    public function countDataKeluarga()
+    {
+        return $this->db->get('data_keluarga')->num_rows();
+    }
+
     public function getDataKeluarga($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

@@ -2,6 +2,11 @@
 
 class Data_lembur_model extends CI_Model
 {
+    public function countDataLembur()
+    {
+        return $this->db->get('data_lembur')->num_rows();
+    }
+
     public function getDataLembur($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

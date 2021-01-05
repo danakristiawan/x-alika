@@ -2,6 +2,11 @@
 
 class Data_kurang_model extends CI_Model
 {
+    public function countDataKurang()
+    {
+        return $this->db->get('data_kurang')->num_rows();
+    }
+
     public function getDataKurang($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {
