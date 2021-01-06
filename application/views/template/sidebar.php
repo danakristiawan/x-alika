@@ -16,8 +16,8 @@
                     $menu = $s['menu'];
                     $url = $s['url'];
                 ?>
-                    <li class="nav-item">
-                        <a class="nav-link <?= $this->uri->segment(1) == $url ? 'active' : ''; ?>" href="<?= base_url() . $url; ?>">
+                    <li class="nav-item m-0 p-0">
+                        <a class="nav-link <?= $this->uri->segment(1) == $url ? 'active' : ''; ?> pb-1" href="<?= base_url() . $url; ?>">
                             &nbsp; <?= $menu; ?>
                         </a>
                     </li>
