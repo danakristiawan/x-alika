@@ -41,6 +41,12 @@ class Data_keluarga_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function deleteDataKeluargaAll()
+    {
+        $this->db->query("DELETE FROM data_keluarga");
+        return $this->db->affected_rows();
+    }
+
     public function getKeluarga($nip)
     {
         $this->db->order_by('tgllhr', 'ASC');

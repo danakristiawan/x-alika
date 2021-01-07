@@ -41,6 +41,12 @@ class Data_pegawai_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function deleteDataPegawaiAll()
+    {
+        $this->db->query("DELETE FROM data_pegawai");
+        return $this->db->affected_rows();
+    }
+
     public function getPegawai($nip)
     {
         return $this->db->query("SELECT a.*, b.nama AS nama_pangkat, c.nama AS nama_jabatan FROM data_pegawai a LEFT JOIN ref_pangkat b ON a.kdgol=b.kdgol LEFT JOIN ref_jabatan c ON a.kdjab=c.kode WHERE a.nip='$nip'")->row_array();

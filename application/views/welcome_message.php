@@ -37,8 +37,8 @@
 				<h1 class="display-4 font-weight-normal">Hai!, Selamat Datang di Alika.</h1>
 				<p class="lead font-weight-normal">Dengan Alika, kami hadirkan pengalaman terbaik dalam menyajikan informasi keuangan ke layar Anda.</p>
 				<a class="btn btn-outline-danger mb-3" href="https://sso.djkn.kemenkeu.go.id/via/sso/remote/login?client_id=portalkeuangan&redirect_uri=http://localhost:8888/x-alika/sso&no_cache=123">Login Menggunakan SSO DJKN</a>
-				<p class="text-muted">atau</p>
-				<a href="<?= base_url('sign-in'); ?>" class="text-muted">Login dengan Akun Alika</a>
+				<!-- <p class="text-muted">atau</p>
+				<a href="<?= base_url('sign-in'); ?>" class="text-muted">Login dengan Akun Alika</a> -->
 			</div>
 		</div>
 	</main>

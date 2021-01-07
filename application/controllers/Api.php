@@ -690,6 +690,15 @@ class Api extends RestController
         }
     }
 
+    public function all_data_pegawai_delete()
+    {
+        $this->data_pegawai->deleteDataPegawaiAll();
+        $this->response([
+            'status' => true,
+            'message' => 'Data was successfully deleted'
+        ], 200);
+    }
+
     // -----------------------------------
     // data_keluarga (6)
     // -----------------------------------
@@ -778,6 +787,15 @@ class Api extends RestController
                 'message' => 'Data was successfully deleted'
             ], 200);
         }
+    }
+
+    public function all_data_keluarga_delete()
+    {
+        $this->data_keluarga->deleteDataKeluargaAll();
+        $this->response([
+            'status' => true,
+            'message' => 'Data was successfully deleted'
+        ], 200);
     }
 
     // -----------------------------------
