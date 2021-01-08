@@ -57,7 +57,7 @@
                 $jml_ptkp_anak = $peg_anak * $ptkp_anak;
                 $ptkp = $jml_ptkp_wp + $jml_ptkp_istri + $jml_ptkp_anak;
                 $pkp = $disetahun - $ptkp;
-                $jml_dipungut = $gaji['tpajak'] + $kurang['tpajak'] + $tukin['potongan'];
+                $jml_dipungut = $gaji['tpajak'] + $kurang['tpajak'] + $tukin['potongan'] + $rapel['pph'];
                 $pph_tarif_1 = $tarif['pph_tarif_1'];
                 $pph_tarif_2 = $tarif['pph_tarif_2'];
                 $pph_tarif_3 = $tarif['pph_tarif_3'];
