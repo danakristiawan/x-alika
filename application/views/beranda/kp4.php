@@ -162,31 +162,41 @@
             <td>Status</td>
             <td>Tunjangan</td>
         </tr>
-        <?php $no = 1;
-        foreach ($keluarga as $r) :
-            switch ($r['kdkeluarga']) {
-                case '1':
-                    $status = 'Isteri';
-                    break;
-                case '2':
-                    $status = 'Suami';
-                    break;
-                case '3':
-                    $status = 'Anak';
-                    break;
-                default:
-                    $status = 'Lainnya';
-                    break;
-            }
-        ?>
+        <?php if ($keluarga) : ?>
+            <?php $no = 1;
+            foreach ($keluarga as $r) :
+                switch ($r['kdkeluarga']) {
+                    case '1':
+                        $status = 'Isteri';
+                        break;
+                    case '2':
+                        $status = 'Suami';
+                        break;
+                    case '3':
+                        $status = 'Anak';
+                        break;
+                    default:
+                        $status = 'Lainnya';
+                        break;
+                }
+            ?>
+                <tr>
+                    <td><?= $no++; ?></td>
+                    <td style="width:200px;"><?= $r['nama']; ?></td>
+                    <td style="width:70px;"><?= date('d-m-Y', strtotime($r['tgllhr'])); ?></td>
+                    <td style="width:80px;"><?= $status; ?></td>
+                    <td style="width:100px;"><?= $r['kddapat'] == '1' ? 'Dapat' : 'Tidak'; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else : ?>
             <tr>
-                <td><?= $no++; ?></td>
-                <td style="width:200px;"><?= $r['nama']; ?></td>
-                <td style="width:70px;"><?= date('d-m-Y', strtotime($r['tgllhr'])); ?></td>
-                <td style="width:80px;"><?= $status; ?></td>
-                <td style="width:100px;"><?= $r['kddapat'] == '1' ? 'Dapat' : 'Tidak'; ?></td>
+                <td> - </td>
+                <td style="width:200px;"> - </td>
+                <td style="width:70px;"> - </td>
+                <td style="width:80px;"> - </td>
+                <td style="width:100px;"> - </td>
             </tr>
-        <?php endforeach; ?>
+        <?php endif; ?>
     </table>
     <table class="kosong" style="margin-top:5px;">
         <tr>

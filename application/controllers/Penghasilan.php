@@ -2,7 +2,7 @@
 
 use Spipu\Html2Pdf\Html2Pdf;
 
-class Penghasilan_tahun_ini extends CI_Controller
+class Penghasilan extends CI_Controller
 {
     public function __construct()
     {
@@ -23,15 +23,26 @@ class Penghasilan_tahun_ini extends CI_Controller
         $this->load->model('Data_pegawai_model', 'pegawai');
     }
 
-    public function index()
+    public function index($thn = null)
     {
+        if (!isset($thn)) $thn = date('Y');
         $nip = $this->session->userdata('nip');
-        $thn = date('Y');
-        $data['penghasilan'] = $this->penghasilan->getPenghasilanTahunIni($nip, $thn);
+        $data['penghasilan'] = $this->penghasilan->getPenghasilan($nip, $thn);
+        $data['thn'] = $thn;
+        $data['tahun'] = [
+            [
+                'tahun' => date('Y'),
+                'name' => 'Tahun Ini'
+            ],
+            [
+                'tahun' => date('Y') - 1,
+                'name' => 'Tahun Lalu'
+            ]
+        ];
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');
-        $this->load->view('penghasilan_tahun_ini/index', $data);
+        $this->load->view('penghasilan/index', $data);
         $this->load->view('template/footer');
     }
 
@@ -55,7 +66,7 @@ class Penghasilan_tahun_ini extends CI_Controller
         $data['pegawai'] = $this->pegawai->getPegawai($nip);
 
         ob_start();
-        $this->load->view('penghasilan_tahun_ini/surat', $data);
+        $this->load->view('penghasilan/surat', $data);
         $html = ob_get_clean();
 
         $html2pdf = new Html2Pdf('P', 'A4', 'en', false, 'UTF-8', array(10, 10, 10, 10));
@@ -81,7 +92,7 @@ class Penghasilan_tahun_ini extends CI_Controller
         $data['pegawai'] = $this->pegawai->getPegawai($nip);
 
         ob_start();
-        $this->load->view('penghasilan_tahun_ini/daftar', $data);
+        $this->load->view('penghasilan/daftar', $data);
         $html = ob_get_clean();
 
         $html2pdf = new Html2Pdf('L', 'A4', 'en', false, 'UTF-8', array(10, 10, 10, 10));

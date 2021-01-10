@@ -2,7 +2,7 @@
 
 class Penghasilan_model extends CI_Model
 {
-    public function getPenghasilanTahunIni($nip, $thn)
+    public function getPenghasilan($nip, $thn)
     {
         return $this->db->query("
         SELECT a.bulan,a.tahun,a.netto AS netto1,

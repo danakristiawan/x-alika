@@ -1,6 +1,13 @@
 <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Penghasilan Tahun Ini</h1>
+        <h1 class="h2">Penghasilan</h1>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <?php foreach ($tahun as $t) : ?>
+                <a href="<?= base_url('penghasilan/index/') . $t['tahun']; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['name']; ?></a>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="row">
         <div class="col-lg-10">
@@ -42,8 +49,8 @@
                                 <td class="text-right"><?= number_format($total, 0, ',', '.'); ?></td>
                                 <td class="pb-0 pt-0">
                                     <div class="btn-group btn-group-sm" role="group">
-                                        <a href="<?= base_url('penghasilan-tahun-ini/surat/') . $r['bulan'] . '/' . $r['tahun']; ?>" class="btn btn-sm btn-outline-success pt-0 pb-0">Surat</a>
-                                        <a href="<?= base_url('penghasilan-tahun-ini/daftar/') . $r['bulan'] . '/' . $r['tahun']; ?>" class="btn btn-sm btn-outline-success pt-0 pb-0">Daftar</a>
+                                        <a href="<?= base_url('penghasilan/surat/') . $r['bulan'] . '/' . $r['tahun']; ?>" class="btn btn-sm btn-outline-success pt-0 pb-0">Surat</a>
+                                        <a href="<?= base_url('penghasilan/daftar/') . $r['bulan'] . '/' . $r['tahun']; ?>" class="btn btn-sm btn-outline-success pt-0 pb-0">Daftar</a>
                                     </div>
                                 </td>
                             </tr>
