@@ -2,6 +2,11 @@
 
 class Data_unit_pegawai_model extends CI_Model
 {
+    public function countDataUnitPegawai()
+    {
+        return $this->db->get('data_unit_pegawai')->num_rows();
+    }
+
     public function getDataUnitPegawai($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

@@ -213,17 +213,17 @@
             <td class="kosong"></td>
         </tr>
         <tr>
-            <td class="kosong" style="width:350px;"><?= $profil['jab_ttd_skp']; ?></td>
+            <td class="kosong" style="width:350px;"><?= $profil['jab_ttd_kp4']; ?></td>
             <td class="kosong">Yang Menerangkan,</td>
         </tr>
     </table>
     <table class="kosong" style="padding-top:40px;">
         <tr>
-            <td class="kosong" style="width:350px;"><?= $profil['nama_ttd_skp']; ?></td>
+            <td class="kosong" style="width:350px;"><?= $profil['nama_ttd_kp4']; ?></td>
             <td class="kosong"><?= $pegawai['nmpeg']; ?></td>
         </tr>
         <tr>
-            <td class="kosong" style="width:350px;">NIP <?= $profil['nip_ttd_skp']; ?></td>
+            <td class="kosong" style="width:350px;">NIP <?= $profil['nip_ttd_kp4']; ?></td>
             <td class="kosong">NIP <?= $pegawai['nip']; ?></td>
         </tr>
     </table>

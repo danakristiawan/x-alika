@@ -2,6 +2,11 @@
 
 class Ref_spt_tahunan_model extends CI_Model
 {
+    public function countRefSptTahunan()
+    {
+        return $this->db->get('ref_spt_tahunan')->num_rows();
+    }
+
     public function getRefSptTahunan($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

@@ -11,9 +11,9 @@ class Ref_bulan_model extends CI_Model
         }
     }
 
-    public function findDataPegawai($keyword = null, $limit = 0, $offset = 0)
+    public function findRefBulan($keyword = null, $limit = 0, $offset = 0)
     {
-        $this->db->like('tahun', $keyword);
+        $this->db->like('bulan', $keyword);
         return $this->db->get('ref_bulan', $limit, $offset)->result_array();
     }
 

@@ -2,6 +2,11 @@
 
 class Data_tukin_model extends CI_Model
 {
+    public function countDataTukin()
+    {
+        return $this->db->get('data_tukin')->num_rows();
+    }
+
     public function getDataTukin($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

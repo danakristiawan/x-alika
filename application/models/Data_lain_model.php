@@ -2,6 +2,11 @@
 
 class Data_lain_model extends CI_Model
 {
+    public function countDataLain()
+    {
+        return $this->db->get('data_lain')->num_rows();
+    }
+
     public function getDataLain($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

@@ -2,6 +2,11 @@
 
 class Data_profil_model extends CI_Model
 {
+    public function countDataProfil()
+    {
+        return $this->db->get('data_profil')->num_rows();
+    }
+
     public function getDataProfil($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

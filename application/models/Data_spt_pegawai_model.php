@@ -2,6 +2,11 @@
 
 class Data_spt_pegawai_model extends CI_Model
 {
+    public function countDataSptPegawai()
+    {
+        return $this->db->get('data_spt_pegawai')->num_rows();
+    }
+
     public function getDataSptPegawai($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {
@@ -42,7 +47,6 @@ class Data_spt_pegawai_model extends CI_Model
 
     public function getSptPegawai($nip, $thn)
     {
-        // return $this->db->query(" SELECT * FROM data_spt_pegawai WHERE nip='$nip' AND tahun='$thn'")->row_array();
         return $this->db->query(" SELECT a.*,b.nmpeg,c.nama AS nama_gol,d.nama AS nama_jab FROM data_spt_pegawai a LEFT JOIN data_pegawai b ON a.nip=b.nip LEFT JOIN ref_pangkat c ON a.kdgol=c.kdgol LEFT JOIN ref_jabatan d ON a.kdjab=d.kode WHERE a.nip='$nip' AND a.tahun='$thn'")->row_array();
     }
 

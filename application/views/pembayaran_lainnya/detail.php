@@ -16,6 +16,7 @@
                             <th>No</th>
                             <th>Uraian Kegiatan</th>
                             <th>Tanggal</th>
+                            <th>SPM</th>
                             <th>Bruto</th>
                             <th>PPh</th>
                             <th>Netto</th>
@@ -31,7 +32,8 @@
                             <tr>
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td><?= $r['uraian']; ?></td>
-                                <td><?= date('d-m-Y', $r['tanggal']); ?></td>
+                                <td class="text-center"><?= date('d-m-Y', $r['tanggal']); ?></td>
+                                <td class="text-center"><?= $r['nospm']; ?></td>
                                 <td class="text-right"><?= number_format($r['bruto'], 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($r['pph'], 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($r['netto'], 0, ',', '.'); ?></td>
@@ -43,7 +45,7 @@
                             ?>
                         <?php endforeach; ?>
                         <tr class="align-middle">
-                            <th colspan="3" class="text-center">Jumlah</th>
+                            <th colspan="4" class="text-center">Jumlah</th>
                             <th class="text-right"><?= number_format($j1, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j2, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j3, 0, ',', '.'); ?></th>

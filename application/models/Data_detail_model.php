@@ -2,6 +2,11 @@
 
 class Data_detail_model extends CI_Model
 {
+    public function countDataDetail()
+    {
+        return $this->db->get('data_detail')->num_rows();
+    }
+
     public function getDataDetail($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

@@ -2,6 +2,11 @@
 
 class Data_satker_model extends CI_Model
 {
+    public function countDataSatker()
+    {
+        return $this->db->get('data_satker')->num_rows();
+    }
+
     public function getDataSatker($id = null, $limit = 0, $offset = 0)
     {
         if ($id === null) {

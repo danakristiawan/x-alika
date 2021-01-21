@@ -2,7 +2,7 @@
 
 class User_model extends CI_Model
 {
-    public function getUser($limit = 0, $offset = 0, $id = null)
+    public function getUser($id = null, $limit = 0, $offset = 0)
     {
         if ($id == null) {
             return $this->db->get('users', $limit, $offset)->result_array();
