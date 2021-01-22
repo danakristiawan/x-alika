@@ -16,7 +16,7 @@ class Ref_spt_tahunan_model extends CI_Model
         }
     }
 
-    public function findDataPegawai($keyword = null, $limit = 0, $offset = 0)
+    public function findRefSptTahunan($keyword = null, $limit = 0, $offset = 0)
     {
         $this->db->like('tahun', $keyword);
         return $this->db->get('ref_spt_tahunan', $limit, $offset)->result_array();

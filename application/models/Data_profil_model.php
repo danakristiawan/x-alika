@@ -18,8 +18,7 @@ class Data_profil_model extends CI_Model
 
     public function findDataProfil($keyword = null, $limit = 0, $offset = 0)
     {
-        $this->db->like('kdsdatker', $keyword);
-        $this->db->or_like('nmsatker', $keyword);
+        $this->db->like('kdsatker', $keyword);
         return $this->db->get('data_profil', $limit, $offset)->result_array();
     }
 

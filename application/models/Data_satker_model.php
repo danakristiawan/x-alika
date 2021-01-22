@@ -18,8 +18,7 @@ class Data_satker_model extends CI_Model
 
     public function findDataSatker($keyword = null, $limit = 0, $offset = 0)
     {
-        $this->db->like('kdsdatker', $keyword);
-        $this->db->or_like('nmsatker', $keyword);
+        $this->db->like('nmsatker', $keyword);
         return $this->db->get('data_satker', $limit, $offset)->result_array();
     }
 

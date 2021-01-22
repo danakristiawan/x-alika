@@ -18,9 +18,12 @@ class Data_spt_pegawai_model extends CI_Model
 
     public function findDataSptPegawai($keyword = null, $limit = 0, $offset = 0)
     {
-        $this->db->like('nip', $keyword);
+        $this->db->where('nip', $keyword);
+        $this->db->order_by('tahun', 'ASC');
         return $this->db->get('data_spt_pegawai', $limit, $offset)->result_array();
     }
+
+
 
     public function createDataSptPegawai($data)
     {

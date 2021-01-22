@@ -371,12 +371,11 @@ class Api2 extends RestController
     public function data_satker_get()
     {
         $id = $this->get('id');
-        $keyword1 = $this->get('keyword1');
-        $keyword2 = $this->get('keyword2');
+        $keyword = $this->get('keyword');
         $limit = $this->get('limit');
         $offset = $this->get('offset');
-        if ($keyword1) {
-            $data = $this->data_satker->findDataSatker($keyword1, $keyword2, $limit, $offset);
+        if ($keyword) {
+            $data = $this->data_satker->findDataSatker($keyword, $limit, $offset);
         } else {
             $data = $this->data_satker->getDataSatker($id, $limit, $offset);
         }
@@ -464,12 +463,11 @@ class Api2 extends RestController
     public function data_profil_get()
     {
         $id = $this->get('id');
-        $keyword1 = $this->get('keyword1');
-        $keyword2 = $this->get('keyword2');
+        $keyword = $this->get('keyword');
         $limit = $this->get('limit');
         $offset = $this->get('offset');
-        if ($keyword1) {
-            $data = $this->data_profil->findDataProfil($keyword1, $keyword2, $limit, $offset);
+        if ($keyword) {
+            $data = $this->data_profil->findDataProfil($keyword, $limit, $offset);
         } else {
             $data = $this->data_profil->getDataProfil($id, $limit, $offset);
         }
@@ -571,12 +569,11 @@ class Api2 extends RestController
     public function data_spt_pegawai_get()
     {
         $id = $this->get('id');
-        $keyword1 = $this->get('keyword1');
-        $keyword2 = $this->get('keyword2');
+        $keyword = $this->get('keyword');
         $limit = $this->get('limit');
         $offset = $this->get('offset');
-        if ($keyword1) {
-            $data = $this->data_spt_pegawai->findDataSptPegawai($keyword1, $keyword2, $limit, $offset);
+        if ($keyword) {
+            $data = $this->data_spt_pegawai->findDataSptPegawai($keyword, $limit, $offset);
         } else {
             $data = $this->data_spt_pegawai->getDataSptPegawai($id, $limit, $offset);
         }
