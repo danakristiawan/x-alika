@@ -8,17 +8,16 @@ class Api2 extends RestController
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Data_tukin_model', 'data_tukin');
-        $this->load->model('Data_lain_model', 'data_lain');
-        $this->load->model('Data_detail_model', 'data_detail');
-        $this->load->model('Data_satker_model', 'data_satker');
-        $this->load->model('Data_profil_model', 'data_profil');
-        $this->load->model('Data_spt_pegawai_model', 'data_spt_pegawai');
-        $this->load->model('Data_unit_pegawai_model', 'data_unit_pegawai');
-        $this->load->model('Ref_spt_tahunan_model', 'ref_spt_tahunan');
-        $this->load->model('Ref_jabatan_model', 'ref_jabatan');
-        $this->load->model('Ref_pangkat_model', 'ref_pangkat');
-        $this->load->model('User_model', 'user');
+        $this->load->model('Data_tukin_model', 'data_tukin'); //1
+        $this->load->model('Data_lain_model', 'data_lain'); //2
+        $this->load->model('Data_satker_model', 'data_satker'); //3
+        $this->load->model('Data_profil_model', 'data_profil'); //4
+        $this->load->model('Data_spt_pegawai_model', 'data_spt_pegawai'); //5
+        $this->load->model('Data_unit_pegawai_model', 'data_unit_pegawai'); //6
+        $this->load->model('Ref_spt_tahunan_model', 'ref_spt_tahunan'); //7
+        $this->load->model('Ref_jabatan_model', 'ref_jabatan'); //8
+        $this->load->model('Ref_pangkat_model', 'ref_pangkat'); //9
+        $this->load->model('User_model', 'user'); //10
     }
 
     // -----------------------------------
@@ -199,7 +198,10 @@ class Api2 extends RestController
             'bruto' => $this->post('bruto'),
             'pph' => $this->post('pph'),
             'netto' => $this->post('netto'),
-            'jenis' => $this->post('jenis')
+            'jenis' => $this->post('jenis'),
+            'uraian' => $this->post('uraian'),
+            'tanggal' => $this->post('tanggal'),
+            'nospm' => $this->post('nospm')
         ];
         if ($this->post('nip') === null | $this->post('nip') === "") {
             $this->response([
@@ -226,7 +228,10 @@ class Api2 extends RestController
             'bruto' => $this->put('bruto'),
             'pph' => $this->put('pph'),
             'netto' => $this->put('netto'),
-            'jenis' => $this->put('jenis')
+            'jenis' => $this->put('jenis'),
+            'uraian' => $this->put('uraian'),
+            'tanggal' => $this->put('tanggal'),
+            'nospm' => $this->put('nospm')
         ];
         if ($id === null | $id === "") {
             $this->response([
@@ -260,106 +265,7 @@ class Api2 extends RestController
     }
 
     // -----------------------------------
-    // data_detail (3)
-    // -----------------------------------
-
-    public function count_data_detail_get()
-    {
-        $data = $this->data_detail->countDataDetail();
-        $this->response($data, 200);
-    }
-
-    public function data_detail_get()
-    {
-        $id = $this->get('id');
-        $keyword1 = $this->get('keyword1');
-        $keyword2 = $this->get('keyword2');
-        $limit = $this->get('limit');
-        $offset = $this->get('offset');
-        if ($keyword1) {
-            $data = $this->data_detail->findDataDetail($keyword1, $keyword2, $limit, $offset);
-        } else {
-            $data = $this->data_detail->getDataDetail($id, $limit, $offset);
-        }
-        $this->response($data, 200);
-    }
-
-    public function data_detail_post()
-    {
-        $data = [
-            'bulan' => $this->post('bulan'),
-            'tahun' => $this->post('tahun'),
-            'kdsatker' => $this->post('kdsatker'),
-            'nip' => $this->post('nip'),
-            'bruto' => $this->post('bruto'),
-            'pph' => $this->post('pph'),
-            'netto' => $this->post('netto'),
-            'jenis' => $this->post('jenis'),
-            'uraian' => $this->post('uraian'),
-            'tanggal' => $this->post('tanggal')
-        ];
-        if ($this->post('nip') === null | $this->post('nip') === "") {
-            $this->response([
-                'status' => false,
-                'message' => 'No data were added'
-            ], 404);
-        } else {
-            $this->data_detail->createDataDetail($data);
-            $this->response([
-                'status' => true,
-                'message' => 'Data was successfully added'
-            ], 200);
-        }
-    }
-
-    public function data_detail_put()
-    {
-        $id = $this->put('id');
-        $data = [
-            'bulan' => $this->put('bulan'),
-            'tahun' => $this->put('tahun'),
-            'kdsatker' => $this->put('kdsatker'),
-            'nip' => $this->put('nip'),
-            'bruto' => $this->put('bruto'),
-            'pph' => $this->put('pph'),
-            'netto' => $this->put('netto'),
-            'jenis' => $this->put('jenis'),
-            'uraian' => $this->put('uraian'),
-            'tanggal' => $this->put('tanggal')
-        ];
-        if ($id === null | $id === "") {
-            $this->response([
-                'status' => false,
-                'message' => 'No data were changed'
-            ], 404);
-        } else {
-            $this->data_detail->updateDataDetail($data, $id);
-            $this->response([
-                'status' => true,
-                'message' => 'Data was successfully changed'
-            ], 200);
-        }
-    }
-
-    public function data_detail_delete()
-    {
-        $id = $this->delete('id');
-        if ($id === null | $id === "") {
-            $this->response([
-                'status' => false,
-                'message' => 'No data were deleted'
-            ], 404);
-        } else {
-            $this->data_detail->deleteDataDetail($id);
-            $this->response([
-                'status' => true,
-                'message' => 'Data was successfully deleted'
-            ], 200);
-        }
-    }
-
-    // -----------------------------------
-    // data_satker (4)
+    // data_satker (3)
     // -----------------------------------
 
     public function count_data_satker_get()
@@ -451,7 +357,7 @@ class Api2 extends RestController
     }
 
     // -----------------------------------
-    // data_profil (5)
+    // data_profil (4)
     // -----------------------------------
 
     public function count_data_profil_get()
@@ -557,7 +463,7 @@ class Api2 extends RestController
     }
 
     // -----------------------------------
-    // data_spt_pegawai (6)
+    // data_spt_pegawai (5)
     // -----------------------------------
 
     public function count_data_spt_pegawai_get()
@@ -589,7 +495,7 @@ class Api2 extends RestController
             'npwp' => $this->post('npwp'),
             'kdgol' => $this->post('kdgol'),
             'alamat' => $this->post('alamat'),
-            'kdkwain' => $this->post('kdkwain'),
+            'kdkawin' => $this->post('kdkawin'),
             'kdjab' => $this->post('kdjab'),
             'nourut' => $this->post('nourut')
         ];
@@ -617,7 +523,7 @@ class Api2 extends RestController
             'npwp' => $this->put('npwp'),
             'kdgol' => $this->put('kdgol'),
             'alamat' => $this->put('alamat'),
-            'kdkwain' => $this->put('kdkwain'),
+            'kdkawin' => $this->put('kdkawin'),
             'kdjab' => $this->put('kdjab'),
             'nourut' => $this->put('nourut')
         ];
@@ -653,7 +559,7 @@ class Api2 extends RestController
     }
 
     // -----------------------------------
-    // data_unit_pegawai (7)
+    // data_unit_pegawai (6)
     // -----------------------------------
 
     public function count_data_unit_pegawai_get()
@@ -680,14 +586,8 @@ class Api2 extends RestController
     {
         $data = [
             'kdsatker' => $this->post('kdsatker'),
-            'tahun' => $this->post('tahun'),
             'nip' => $this->post('nip'),
-            'npwp' => $this->post('npwp'),
-            'kdgol' => $this->post('kdgol'),
-            'alamat' => $this->post('alamat'),
-            'kdkwain' => $this->post('kdkwain'),
-            'kdjab' => $this->post('kdjab'),
-            'nourut' => $this->post('nourut')
+            'nama' => $this->post('nama')
         ];
         if ($this->post('kdsatker') === null | $this->post('kdsatker') === "") {
             $this->response([
@@ -708,14 +608,8 @@ class Api2 extends RestController
         $id = $this->put('id');
         $data = [
             'kdsatker' => $this->put('kdsatker'),
-            'tahun' => $this->put('tahun'),
             'nip' => $this->put('nip'),
-            'npwp' => $this->put('npwp'),
-            'kdgol' => $this->put('kdgol'),
-            'alamat' => $this->put('alamat'),
-            'kdkwain' => $this->put('kdkwain'),
-            'kdjab' => $this->put('kdjab'),
-            'nourut' => $this->put('nourut')
+            'nama' => $this->put('nama')
         ];
         if ($id === null | $id === "") {
             $this->response([
@@ -749,7 +643,7 @@ class Api2 extends RestController
     }
 
     // -----------------------------------
-    // ref_spt_tahunan (8)
+    // ref_spt_tahunan (7)
     // -----------------------------------
 
     public function count_ref_spt_tahunan_get()
@@ -790,7 +684,7 @@ class Api2 extends RestController
             'pph_limit_2' => $this->post('pph_limit_2'),
             'pph_limit_3' => $this->post('pph_limit_3')
         ];
-        if ($this->post('nama') === null | $this->post('nama') === "") {
+        if ($this->post('tahun') === null | $this->post('tahun') === "") {
             $this->response([
                 'status' => false,
                 'message' => 'No data were added'
@@ -855,7 +749,7 @@ class Api2 extends RestController
     }
 
     // -----------------------------------
-    // ref_jabatan (9)
+    // ref_jabatan (8)
     // -----------------------------------
 
     public function count_ref_jabatan_get()
@@ -937,7 +831,7 @@ class Api2 extends RestController
     }
 
     // -----------------------------------
-    // ref_pangkat (10)
+    // ref_pangkat (9)
     // -----------------------------------
 
     public function count_ref_pangkat_get()
@@ -1023,7 +917,7 @@ class Api2 extends RestController
     }
 
     // -----------------------------------
-    // ref_user (11)
+    // ref_user (10)
     // -----------------------------------
 
     public function count_user_get()
@@ -1074,12 +968,12 @@ class Api2 extends RestController
     {
         $id = $this->put('id');
         $data = [
-            'nip' => $this->post('nip'),
-            'nama' => $this->post('nama'),
-            'email' => $this->post('email'),
-            'password' => $this->post('password'),
-            'is_active' => $this->post('is_active'),
-            'date_created' => $this->post('date_created')
+            'nip' => $this->put('nip'),
+            'nama' => $this->put('nama'),
+            'email' => $this->put('email'),
+            'password' => $this->put('password'),
+            'is_active' => $this->put('is_active'),
+            'date_created' => $this->put('date_created')
         ];
         if ($id === null | $id === "") {
             $this->response([

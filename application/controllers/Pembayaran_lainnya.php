@@ -7,7 +7,6 @@ class Pembayaran_lainnya extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Data_lain_model', 'data_lain');
-        $this->load->model('Data_detail_model', 'data_detail');
     }
 
     public function index($thn = null, $jns = null)
@@ -36,7 +35,7 @@ class Pembayaran_lainnya extends CI_Controller
         $data['thn'] = $thn;
         $data['jns'] = $jns;
         $data['bln'] = $bln;
-        $data['detail'] = $this->data_detail->getDetail($nip, $thn, $jns, $bln);
+        $data['detail'] = $this->data_lain->getDetail($nip, $bln, $thn, $jns);
 
         $this->load->view('template/header');
         $this->load->view('template/sidebar');

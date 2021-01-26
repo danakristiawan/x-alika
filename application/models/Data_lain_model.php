@@ -53,7 +53,12 @@ class Data_lain_model extends CI_Model
 
     public function getLain($nip, $thn, $jns)
     {
-        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_lain a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$thn' AND a.jenis='$jns'")->result_array();
+        return $this->db->query("SELECT SUM(a.bruto) AS bruto,SUM(a.pph) AS pph,SUM(a.netto) AS netto,a.bulan,b.bulan AS nama_bulan FROM data_lain a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$thn' AND a.jenis='$jns' GROUP BY a.bulan,b.bulan")->result_array();
+    }
+
+    public function getDetail($nip, $bln, $thn, $jns)
+    {
+        return $this->db->query("SELECT * FROM data_lain WHERE nip='$nip' AND bulan='$bln' AND tahun='$thn' AND jenis='$jns' ORDER BY tanggal ASC")->result_array();
     }
 
     public function getPph($nip, $thn)
