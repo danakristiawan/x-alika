@@ -452,13 +452,31 @@ $config['global_xss_filtering'] = TRUE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = FALSE;
-// $config['csrf_protection'] = TRUE;
+// $config['csrf_protection'] = FALSE;
+$config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_exclude_uris'] = array(
+    'api/data-gaji',
+    'api/data-kurang',
+    'api/data-makan',
+    'api/data-lembur',
+    'api/data-pegawai',
+    'api/data-keluarga',
+    'api/data-perubahan',
+    'api2/data-tukin',
+    'api2/data-lain',
+    'api2/data-satker',
+    'api2/data-profil',
+    'api2/data-spt-pegawai',
+    'api2/data-unit-pegawai',
+    'api2/ref-spt-tahunan',
+    'api2/ref-jabatan',
+    'api2/ref-pangkat',
+    'api2/user'
+);
 
 /*
 |--------------------------------------------------------------------------
