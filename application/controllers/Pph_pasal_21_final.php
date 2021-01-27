@@ -19,7 +19,7 @@ class Pph_pasal_21_final extends CI_Controller
 
     public function index($thn = null)
     {
-        if (!isset($thn)) $thn = date('Y');
+        if (!isset($thn)) $thn = date('Y') - 1;
         $nip = $this->session->userdata('nip');
         $data['tahun'] = $this->spt->getTahun($nip);
         $data['thn'] = $thn;
