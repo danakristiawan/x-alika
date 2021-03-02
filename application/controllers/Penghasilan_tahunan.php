@@ -57,7 +57,7 @@ class Penghasilan_tahunan extends CI_Controller
         $data['pegawai'] = $this->pegawai->getPegawai($nip);
 
         ob_start();
-        $this->load->view('penghasilan_tahun_ini/surat', $data);
+        $this->load->view('penghasilan_tahunan/surat', $data);
         $html = ob_get_clean();
 
         $html2pdf = new Html2Pdf('P', 'A4', 'en', false, 'UTF-8', array(10, 10, 10, 10));
@@ -83,7 +83,7 @@ class Penghasilan_tahunan extends CI_Controller
         $data['pegawai'] = $this->pegawai->getPegawai($nip);
 
         ob_start();
-        $this->load->view('penghasilan_tahun_ini/daftar', $data);
+        $this->load->view('penghasilan_tahunan/daftar', $data);
         $html = ob_get_clean();
 
         $html2pdf = new Html2Pdf('L', 'A4', 'en', false, 'UTF-8', array(10, 10, 10, 10));

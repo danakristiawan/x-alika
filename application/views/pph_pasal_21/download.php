@@ -99,7 +99,7 @@
     <table class="detail">
         <tr>
             <td class="angka" style="width:25%; border-bottom:none; text-align:center;">
-                <img src="<?= base_url(); ?>assets/img/logo.jpeg" alt="logo kemenkeu" width="70">
+                <img src="<?= FCPATH . 'assets/img/logo.jpeg'; ?>" alt="logo kemenkeu" width="70">
             </td>
             <td class="angka" style="width:50%; text-align:center; padding-top:5px; padding-bottom:5px; font-size: 12px;">
                 <strong>BUKTI PEMOTONGAN PAJAK PENGHASILAN</strong><br>

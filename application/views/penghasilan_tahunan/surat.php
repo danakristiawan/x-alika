@@ -120,7 +120,7 @@
         <table class="page_header" cellspacing="0px" cellpadding="0px">
             <tr>
                 <td class="logo" rowspan="10">
-                    <img src="<?= base_url('assets/img/logo.jpeg'); ?>" alt="logo kemenkeu" width="100">
+                    <img src="<?= FCPATH . 'assets/img/logo.jpeg'; ?>" alt="logo kemenkeu" width="100">
                 </td>
                 <td class="kop1">
                     <b>KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</b>
