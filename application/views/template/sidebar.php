@@ -1,3 +1,11 @@
+<?php
+$uri = sso()['base_uri'] . sso()['endsession']['endpoint'];
+$id_token = $this->session->userdata('id_token');
+$post_logout_redirect_uri = sso()['authorize']['redirect_uri'];
+$state = sso()['authorize']['state'];
+$endsession_url = $uri . '?id_token_hint=' . $id_token . '&post_logout_redirect_uri=' . $post_logout_redirect_uri . '&state=' . $state;
+?>
+
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="position-sticky pt-3">
         <?php
@@ -47,6 +55,6 @@
                 <?php endforeach; ?>
             </ul>
         <?php endforeach; ?>
-        <a href="<?= base_url('sign-out'); ?>" class="btn btn-sm btn-outline-success mt-3 ml-4">Keluar Aplikasi</a>
+        <a href="<?= $endsession_url; ?>" class="btn btn-sm btn-outline-success mt-3 ml-4">Keluar Aplikasi</a>
     </div>
 </nav>
