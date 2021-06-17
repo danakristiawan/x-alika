@@ -5,7 +5,14 @@
     <div class="row mb-3">
         <div class="col">
             <?php foreach ($tahun as $t) : ?>
-                <a href="<?= base_url('tunjangan-kinerja/index/') . $t['tahun']; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['tahun']; ?></a>
+                <a href="<?= base_url('tunjangan-kinerja/index/') . $t['tahun'] . '/' . $jns; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['tahun']; ?></a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-lg-8">
+            <?php foreach ($jenis as $j) : ?>
+                <a href="<?= base_url('tunjangan-kinerja/index/') . $thn . '/' . $j['jenis']; ?>" class="btn btn-sm btn-outline-success <?= $j['jenis'] == $jns ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $j['jenis'] === '0' ? 'Rutin' : 'Kekurangan'; ?></a>
             <?php endforeach; ?>
         </div>
     </div>
@@ -85,9 +92,9 @@
                                     $p19 = 'Cuti Besar (0%) : ' . number_format($r['p19'], 0, ',', '.') . ' kali <br>';
                                     $p20 = 'Cuti Besar (2,50%) : ' . number_format($r['p20'], 0, ',', '.') . ' kali <br>';
                                     $p21 = 'Cuti Besar (5%) : ' . number_format($r['p21'], 0, ',', '.') . ' kali <br>';
-                                    $p22 = 'Terlambat (0,50%) : ' . number_format($r['p22'], 0, ',', '.') . ' kali <br>';
+                                    // $p22 = 'Terlambat (0,50%) : ' . number_format($r['p22'], 0, ',', '.') . ' kali <br>';
 
-                                    echo $r['p22'] > 0 ? $p22 : '';
+                                    // echo $r['p22'] > 0 ? $p22 : '';
                                     echo $r['p1'] > 0 ? $p1 : '';
                                     echo $r['p2'] > 0 ? $p2 : '';
                                     echo $r['p3'] > 0 ? $p3 : '';

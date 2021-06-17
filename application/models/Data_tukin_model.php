@@ -47,13 +47,18 @@ class Data_tukin_model extends CI_Model
         return $this->db->query("SELECT DISTINCT tahun FROM data_tukin WHERE nip='$nip' ORDER BY tahun DESC")->result_array();
     }
 
-    public function getTukin($nip, $tahun)
+    public function getTukin($nip, $tahun, $jns)
     {
-        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_tukin a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$tahun'")->result_array();
+        return $this->db->query("SELECT a.*, b.bulan AS nama_bulan FROM data_tukin a LEFT JOIN ref_bulan b ON a.bulan=b.kode WHERE a.nip='$nip' AND a.tahun='$tahun' AND a.p22='$jns'")->result_array();
     }
 
     public function getBulanTukin($nip, $bln, $thn)
     {
         return $this->db->get_where('data_tukin', ['nip' => $nip, 'bulan' => $bln, 'tahun' => $thn,])->row_array();
+    }
+
+    public function getJenis($nip, $thn)
+    {
+        return $this->db->query("SELECT DISTINCT p22 AS jenis FROM data_tukin WHERE nip='$nip' AND tahun='$thn' ORDER BY p22 ASC")->result_array();
     }
 }

@@ -18,7 +18,7 @@
                             <th rowspan="2">No</th>
                             <th rowspan="2">Bulan</th>
                             <th colspan="3">Gaji</th>
-                            <th colspan="3">Kekurangan Gaji</th>
+                            <!-- <th colspan="3">Kekurangan Gaji</th> -->
                             <th colspan="3">Uang Makan</th>
                             <th colspan="3">Uang Lembur</th>
                             <th colspan="3">Tunjangan Kinerja</th>
@@ -29,9 +29,9 @@
                             <th>Bruto</th>
                             <th>Pot</th>
                             <th>Netto</th>
-                            <th>Bruto</th>
+                            <!-- <th>Bruto</th>
                             <th>Pot</th>
-                            <th>Netto</th>
+                            <th>Netto</th> -->
                             <th>Bruto</th>
                             <th>Pot</th>
                             <th>Netto</th>
@@ -75,12 +75,12 @@
                             <tr class="align-middle">
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td><?= $r['nama_bulan']; ?></td>
-                                <td class="text-right"><?= number_format($r['bruto1'], 0, ',', '.'); ?></td>
-                                <td class="text-right"><?= number_format($r['potongan1'], 0, ',', '.'); ?></td>
-                                <td class="text-right"><?= number_format($r['netto1'], 0, ',', '.'); ?></td>
-                                <td class="text-right"><?= number_format($r['bruto2'], 0, ',', '.'); ?></td>
+                                <td class="text-right"><?= number_format(($r['bruto1'] + $r['bruto2']), 0, ',', '.'); ?></td>
+                                <td class="text-right"><?= number_format(($r['potongan1'] + $r['potongan2']), 0, ',', '.'); ?></td>
+                                <td class="text-right"><?= number_format(($r['netto1'] + $r['netto2']), 0, ',', '.'); ?></td>
+                                <!-- <td class="text-right"><?= number_format($r['bruto2'], 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($r['potongan2'], 0, ',', '.'); ?></td>
-                                <td class="text-right"><?= number_format($r['netto2'], 0, ',', '.'); ?></td>
+                                <td class="text-right"><?= number_format($r['netto2'], 0, ',', '.'); ?></td> -->
                                 <td class="text-right"><?= number_format($r['bruto3'], 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($r['potongan3'], 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($r['netto3'], 0, ',', '.'); ?></td>
@@ -123,12 +123,12 @@
                         <?php endforeach; ?>
                         <tr>
                             <th colspan="2" class="text-center">Jumlah</th>
-                            <th class="text-right"><?= number_format($j1, 0, ',', '.'); ?></th>
-                            <th class="text-right"><?= number_format($j2, 0, ',', '.'); ?></th>
-                            <th class="text-right"><?= number_format($j3, 0, ',', '.'); ?></th>
-                            <th class="text-right"><?= number_format($j4, 0, ',', '.'); ?></th>
+                            <th class="text-right"><?= number_format($j1 + $j4, 0, ',', '.'); ?></th>
+                            <th class="text-right"><?= number_format($j2 + $j5, 0, ',', '.'); ?></th>
+                            <th class="text-right"><?= number_format($j3 + $j6, 0, ',', '.'); ?></th>
+                            <!-- <th class="text-right"><?= number_format($j4, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j5, 0, ',', '.'); ?></th>
-                            <th class="text-right"><?= number_format($j6, 0, ',', '.'); ?></th>
+                            <th class="text-right"><?= number_format($j6, 0, ',', '.'); ?></th> -->
                             <th class="text-right"><?= number_format($j7, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j8, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j9, 0, ',', '.'); ?></th>

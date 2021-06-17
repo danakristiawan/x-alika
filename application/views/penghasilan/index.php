@@ -18,7 +18,7 @@
                             <th>No</th>
                             <th>Bulan</th>
                             <th>Gaji</th>
-                            <th>Kekurangan Gaji</th>
+                            <!-- <th>Kekurangan Gaji</th> -->
                             <th>Uang Makan</th>
                             <th>Uang Lembur</th>
                             <th>Tunjangan Kinerja</th>
@@ -41,8 +41,8 @@
                             <tr class="align-middle">
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td><?= $r['nama_bulan']; ?></td>
-                                <td class="text-right"><?= number_format($r['netto1'], 0, ',', '.'); ?></td>
-                                <td class="text-right"><?= number_format($r['netto2'], 0, ',', '.'); ?></td>
+                                <td class="text-right"><?= number_format(($r['netto1'] + $r['netto2']), 0, ',', '.'); ?></td>
+                                <!-- <td class="text-right"><?= number_format($r['netto2'], 0, ',', '.'); ?></td> -->
                                 <td class="text-right"><?= number_format($r['netto3'], 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($r['netto4'], 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($r['netto5'], 0, ',', '.'); ?></td>
@@ -65,8 +65,8 @@
                         <?php endforeach; ?>
                         <tr>
                             <th colspan="2" class="text-center">Jumlah</th>
-                            <th class="text-right"><?= number_format($j1, 0, ',', '.'); ?></th>
-                            <th class="text-right"><?= number_format($j2, 0, ',', '.'); ?></th>
+                            <th class="text-right"><?= number_format(($j1 + $j2), 0, ',', '.'); ?></th>
+                            <!-- <th class="text-right"><?= number_format($j2, 0, ',', '.'); ?></th> -->
                             <th class="text-right"><?= number_format($j3, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j4, 0, ',', '.'); ?></th>
                             <th class="text-right"><?= number_format($j5, 0, ',', '.'); ?></th>

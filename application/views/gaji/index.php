@@ -5,7 +5,14 @@
     <div class="row mb-3">
         <div class="col">
             <?php foreach ($tahun as $t) : ?>
-                <a href="<?= base_url('gaji/index/') . $t['tahun']; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['tahun']; ?></a>
+                <a href="<?= base_url('gaji/index/') . $t['tahun'] . '/' . $jns; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['tahun']; ?></a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-lg-8">
+            <?php foreach ($jenis as $j) : ?>
+                <a href="<?= base_url('gaji/index/') . $thn . '/' . $j['jenis']; ?>" class="btn btn-sm btn-outline-success <?= $j['jenis'] == $jns ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $j['jenis'] === '0' ? 'Rutin' : 'Kekurangan'; ?></a>
             <?php endforeach; ?>
         </div>
     </div>

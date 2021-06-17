@@ -18,7 +18,7 @@ $endsession_url = $uri . '?id_token_hint=' . $id_token . '&post_logout_redirect_
             ['menu' => 'Beranda', 'level' => 1, 'url' => 'beranda'],
             ['menu' => 'Penghasilan', 'level' => 1, 'url' => 'penghasilan'],
             ['menu' => 'Gaji', 'level' => 2, 'url' => 'gaji'],
-            ['menu' => 'Kekurangan Gaji', 'level' => 2, 'url' => 'kekurangan-gaji'],
+            // ['menu' => 'Kekurangan Gaji', 'level' => 2, 'url' => 'kekurangan-gaji'],
             ['menu' => 'Uang Makan', 'level' => 2, 'url' => 'uang-makan'],
             ['menu' => 'Uang Lembur', 'level' => 2, 'url' => 'uang-lembur'],
             ['menu' => 'Tunjangan Kinerja', 'level' => 2, 'url' => 'tunjangan-kinerja'],

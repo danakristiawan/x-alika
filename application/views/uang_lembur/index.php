@@ -3,14 +3,14 @@
         <h1 class="h2">Uang Lembur</h1>
     </div>
     <div class="row mb-3">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
             <?php foreach ($tahun as $t) : ?>
                 <a href="<?= base_url('uang-lembur/index/') . $t['tahun']; ?>" class="btn btn-sm btn-outline-success <?= $t['tahun'] == $thn ? 'active' : '' ?> ml-1 mt-1 mb-1"><?= $t['tahun']; ?></a>
             <?php endforeach; ?>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead class="text-center">
@@ -21,7 +21,7 @@
                             <th colspan="3">Bruto</th>
                             <th>Potongan</th>
                             <th rowspan="2">Netto</th>
-                            <th rowspan="2">Keterangan Jam Lembur</th>
+                            <th rowspan="2">Keterangan Jam Lembur (Tgl/Jam)</th>
                         </tr>
                         <tr class="align-middle">
                             <th>Hari Kerja</th>
@@ -46,7 +46,7 @@
                         $j8 = 0;
                         foreach ($lembur as $r) : ?>
                             <tr class="align-middle">
-                                <td class="text-center"><?= $no; ?></td>
+                                <td class="text-center"><?= $no++; ?></td>
                                 <td><?= $r['nama_bulan']; ?></td>
                                 <td class="text-right"><?= number_format($r['jkerja'], 0, ',', '.'); ?></td>
                                 <td class="text-right"><?= number_format($r['jlibur'], 0, ',', '.'); ?></td>
@@ -60,7 +60,7 @@
                                     <?php
                                     for ($i = 1; $i < 32; $i++) {
                                         $h = $r['jhari' . $i . ''];
-                                        echo $h > 1 ? 'Tgl ' . $i . ': ' . $h . ' jam; ' : '';
+                                        echo $h > 1 ? '(' . $i . '/' . $h . '), ' : '';
                                     }
                                     ?>
                                 </td>
